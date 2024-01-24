@@ -1,4 +1,4 @@
-FROM nvidia/cuda:12.2.0-devel-ubuntu22.04
+FROM nvidia/cuda:12.1.0-devel-ubuntu22.04
 
 ENV DEBIAN_FRONTEND=noninteractive
 
@@ -17,6 +17,8 @@ RUN apt-get update \
     cmake \
     curl \
     doxygen \
+    git \
+    vim \
     gdb \
     libboost-dev \
     libpython3-dev \
@@ -26,6 +28,7 @@ RUN apt-get update \
     python3 \
     python3-distutils \
     python3-pip \
+    python3-pybind11 \
     wget \
     && apt-get autoremove -y && apt-get clean -y && rm -rf /var/lib/apt/lists/*
 
@@ -33,3 +36,10 @@ RUN ln -s /usr/bin/python3 /usr/bin/python
 
 RUN pip install -U pip \
     && pip install black flake8 openfermion mypy pybind11-stubgen
+
+# pybind11
+RUN git clone https://github.com/pybind/pybind11.git /tmp/pybind11 \
+    && cd /tmp/pybind11 \
+    && mkdir build && cd build \
+    && cmake .. -DPYBIND11_TEST=Off \
+    && make install
