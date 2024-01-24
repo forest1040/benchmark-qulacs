@@ -1,2 +1,2 @@
-./exec.sh qulacs
-# ./exec.sh qiskit
+sh ./exec.sh qulacs
+# sh ./exec.sh qiskit

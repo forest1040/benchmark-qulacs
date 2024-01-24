@@ -4,8 +4,8 @@ from qulacs import QuantumCircuit, QuantumState
 from qulacs.gate import X, T, H, CNOT, ParametricRZ, ParametricRX, DenseMatrix
 from qulacs.circuit import QuantumCircuitOptimizer as QCO
 
-import mkl
-mkl.set_num_threads(1)
+# import mkl
+# mkl.set_num_threads(1)
 
 
 nqubits_list = range(4, 26)
