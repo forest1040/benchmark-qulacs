@@ -18,4 +18,11 @@ USE_GPU=Yes pip install .
 # Qulacs multithread
 `export QULACS_PARALLEL_NQUBIT_THRESHOLD=1`
 
-pip install pennylane-lightning[gpu]
+# PennyLane Lightning
+```
+pip install pennylane --upgrade
+pip install pennylane-lightning pennylane-lightning[gpu]
+```
+
+lightning.qubit
+lightning.gpu
