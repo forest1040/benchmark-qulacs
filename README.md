@@ -14,3 +14,8 @@ pip install pytest pytest-benchmark
 USE_GPU=Yes ./script/build_gcc_with_gpu.sh
 USE_GPU=Yes pip install .
 ```
+
+# Qulacs multithread
+`export QULACS_PARALLEL_NQUBIT_THRESHOLD=1`
+
+pip install pennylane-lightning[gpu]
