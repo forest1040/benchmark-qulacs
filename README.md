@@ -22,7 +22,8 @@ USE_GPU=Yes pip install .
 ```
 pip install pennylane --upgrade
 pip install pennylane-lightning pennylane-lightning[gpu]
-```
 
-lightning.qubit
-lightning.gpu
+## cuQuantum install
+```
+pip install custatevec-cu11
+```

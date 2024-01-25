@@ -48,11 +48,11 @@ def test_QCBM(benchmark, nqubits):
     pairs = [(i, (i + 1) % nqubits) for i in range(nqubits)]
     node(nqubits, 9, pairs)
 
-# def main():
-#     nqubits = 4
-#     dev = qml.device("lightning.qubit", wires=nqubits)
-#     node = qml.QNode(build_circuit, dev)
-#     pairs = [(i, (i + 1) % nqubits) for i in range(nqubits)]
-#     node(nqubits, 9, pairs)
+def main():
+    nqubits = 4
+    dev = qml.device("lightning.gpu", wires=nqubits)
+    node = qml.QNode(build_circuit, dev)
+    pairs = [(i, (i + 1) % nqubits) for i in range(nqubits)]
+    node(nqubits, 9, pairs)
 
-# main() 
+main() 

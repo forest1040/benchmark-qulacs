@@ -6,6 +6,7 @@ from qulacs.circuit import QuantumCircuitOptimizer as QCO
 import pytest
 
 nqubits_list = range(4, 26)
+#nqubits_list = range(20, 26)
 
 
 def first_rotation(circuit, nqubits):
@@ -79,55 +80,57 @@ def benchfunc5(qco, circuit, nqubits):
     circuit.update_quantum_state(st)
 
 
-@pytest.mark.parametrize('nqubits', nqubits_list)
-def test_QCBMopt(benchmark, nqubits):
-    benchmark.group = "QCBMopt"
-    pairs = [(i, (i + 1) % nqubits) for i in range(nqubits)]
-    circuit = build_circuit(nqubits, 9, pairs)
-    qco = QCO()
-    benchmark(benchfunc, qco, circuit, nqubits)
+# @pytest.mark.parametrize('nqubits', nqubits_list)
+# def test_QCBMopt(benchmark, nqubits):
+#     print(f"nqubits: {nqubits}")
+#     benchmark.group = "QCBMopt"
+#     pairs = [(i, (i + 1) % nqubits) for i in range(nqubits)]
+#     circuit = build_circuit(nqubits, 9, pairs)
+#     qco = QCO()
+#     benchmark(benchfunc, qco, circuit, nqubits)
+
+# # @pytest.mark.parametrize('nqubits', nqubits_list)
+
+
+# def _test_QCBMopt2(benchmark, nqubits):
+#     benchmark.group = "QCBMopt2"
+#     pairs = [(i, (i + 1) % nqubits) for i in range(nqubits)]
+#     circuit = build_circuit(nqubits, 9, pairs)
+#     qco = QCO()
+#     benchmark(benchfunc2, qco, circuit, nqubits)
+
+
+# # @pytest.mark.parametrize('nqubits', nqubits_list)
+# def _test_QCBMopt3(benchmark, nqubits):
+#     benchmark.group = "QCBMopt3"
+#     pairs = [(i, (i + 1) % nqubits) for i in range(nqubits)]
+#     circuit = build_circuit(nqubits, 9, pairs)
+#     qco = QCO()
+#     benchmark(benchfunc3, qco, circuit, nqubits)
+
+
+# @pytest.mark.parametrize('nqubits', nqubits_list)
+# def test_QCBMopt4(benchmark, nqubits):
+#     benchmark.group = "QCBMopt4"
+#     pairs = [(i, (i + 1) % nqubits) for i in range(nqubits)]
+#     circuit = build_circuit(nqubits, 9, pairs)
+#     qco = QCO()
+#     benchmark(benchfunc4, qco, circuit, nqubits)
 
 # @pytest.mark.parametrize('nqubits', nqubits_list)
 
 
-def _test_QCBMopt2(benchmark, nqubits):
-    benchmark.group = "QCBMopt2"
-    pairs = [(i, (i + 1) % nqubits) for i in range(nqubits)]
-    circuit = build_circuit(nqubits, 9, pairs)
-    qco = QCO()
-    benchmark(benchfunc2, qco, circuit, nqubits)
-
-
-# @pytest.mark.parametrize('nqubits', nqubits_list)
-def _test_QCBMopt3(benchmark, nqubits):
-    benchmark.group = "QCBMopt3"
-    pairs = [(i, (i + 1) % nqubits) for i in range(nqubits)]
-    circuit = build_circuit(nqubits, 9, pairs)
-    qco = QCO()
-    benchmark(benchfunc3, qco, circuit, nqubits)
-
-
-@pytest.mark.parametrize('nqubits', nqubits_list)
-def test_QCBMopt4(benchmark, nqubits):
-    benchmark.group = "QCBMopt4"
-    pairs = [(i, (i + 1) % nqubits) for i in range(nqubits)]
-    circuit = build_circuit(nqubits, 9, pairs)
-    qco = QCO()
-    benchmark(benchfunc4, qco, circuit, nqubits)
-
-# @pytest.mark.parametrize('nqubits', nqubits_list)
-
-
-def _test_QCBMopt5(benchmark, nqubits):
-    benchmark.group = "QCBMopt5"
-    pairs = [(i, (i + 1) % nqubits) for i in range(nqubits)]
-    circuit = build_circuit(nqubits, 9, pairs)
-    qco = QCO()
-    benchmark(benchfunc5, qco, circuit, nqubits)
+# def _test_QCBMopt5(benchmark, nqubits):
+#     benchmark.group = "QCBMopt5"
+#     pairs = [(i, (i + 1) % nqubits) for i in range(nqubits)]
+#     circuit = build_circuit(nqubits, 9, pairs)
+#     qco = QCO()
+#     benchmark(benchfunc5, qco, circuit, nqubits)
 
 
 @pytest.mark.parametrize('nqubits', nqubits_list)
 def test_QCBM(benchmark, nqubits):
+    #print(f"nqubits: {nqubits}")
     benchmark.group = "QCBM"
     pairs = [(i, (i + 1) % nqubits) for i in range(nqubits)]
     circuit = build_circuit(nqubits, 9, pairs)

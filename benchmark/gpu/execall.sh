@@ -1,2 +1,3 @@
 sh ./exec.sh qulacs
-# sh ./exec.sh qiskit
+sh ./exec.sh pennylane
+#sh ./exec.sh qiskit
