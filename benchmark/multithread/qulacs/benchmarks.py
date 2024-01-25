@@ -6,6 +6,7 @@ from qulacs.circuit import QuantumCircuitOptimizer as QCO
 import pytest
 
 nqubits_list = range(4, 26)
+# nqubits_list = range(4, 20)
 
 
 def first_rotation(circuit, nqubits):
@@ -55,16 +56,16 @@ def benchfunc(qco, circuit, nqubits):
     circuit.update_quantum_state(st)
 
 
-@pytest.mark.parametrize('nqubits', nqubits_list)
-def test_QCBMopt(benchmark, nqubits):
-    benchmark.group = "QCBMopt"
-    pairs = [(i, (i + 1) % nqubits) for i in range(nqubits)]
-    circuit = build_circuit(nqubits, 9, pairs)
-    qco = QCO()
-    benchmark(benchfunc, qco, circuit, nqubits)
+# @pytest.mark.parametrize('nqubits', nqubits_list)
+# def test_QCBMopt(benchmark, nqubits):
+#     benchmark.group = "QCBMopt"
+#     pairs = [(i, (i + 1) % nqubits) for i in range(nqubits)]
+#     circuit = build_circuit(nqubits, 9, pairs)
+#     qco = QCO()
+#     benchmark(benchfunc, qco, circuit, nqubits)
 
 
-@pytest.mark.parametrize('nqubits', nqubits_list)
+@pytest.mark.parametrize("nqubits", nqubits_list)
 def test_QCBM(benchmark, nqubits):
     benchmark.group = "QCBM"
     pairs = [(i, (i + 1) % nqubits) for i in range(nqubits)]

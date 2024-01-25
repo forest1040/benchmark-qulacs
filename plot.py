@@ -4,8 +4,10 @@ import numpy as np
 import matplotlib.pyplot as plt
 from collections import defaultdict
 
-liblist = ["qulacs_A100", "qulacs_H100"]  # , "qiskit"]
-liblegend = ["QulacsA100", "QulacsH100"]
+# liblist = ["qulacs_A100", "qulacs_H100"]  # , "qiskit"]
+liblist = ["qulacs"]
+# liblegend = ["QulacsA100", "QulacsH100"]
+liblegend = ["Qulacs"]
 # liblegend = ["Qulacs", "Qiskit"]
 
 
@@ -19,8 +21,7 @@ def load(folder_name):
         flist = [fname.replace("\\", "/") for fname in flist]
         print(f"flist: {flist}")
         # pick latest one
-        if libname != "yao":
-            flist.sort(key=lambda x: int(x.split("/")[-1].split("_")[0]), reverse=True)
+        flist.sort(key=lambda x: int(x.split("/")[-1].split("_")[0]), reverse=True)
         if len(flist) > 0:
             filepaths.append((libname, flist[0]))
 
@@ -87,27 +88,27 @@ def plot(dat):
                 linestyle=ls,
                 linewidth=lw,
             )
-            fil = np.array(list(dat[name + "opt"].items())).T
-            plt.plot(
-                fil[0],
-                fil[1],
-                ".-",
-                label=legend + " with opt",
-                c=cmap(cid),
-                linestyle="-",
-                linewidth=lw,
-            )
-            if name + "opt4" in dat:
-                fil = np.array(list(dat[name + "opt4"].items())).T
-                plt.plot(
-                    fil[0],
-                    fil[1],
-                    ".-",
-                    label=legend + " with heavy opt",
-                    c=cmap(cid),
-                    linestyle="-.",
-                    linewidth=lw,
-                )
+            # fil = np.array(list(dat[name + "opt"].items())).T
+            # plt.plot(
+            #     fil[0],
+            #     fil[1],
+            #     ".-",
+            #     label=legend + " with opt",
+            #     c=cmap(cid),
+            #     linestyle="-",
+            #     linewidth=lw,
+            # )
+            # if name + "opt4" in dat:
+            #     fil = np.array(list(dat[name + "opt4"].items())).T
+            #     plt.plot(
+            #         fil[0],
+            #         fil[1],
+            #         ".-",
+            #         label=legend + " with heavy opt",
+            #         c=cmap(cid),
+            #         linestyle="-.",
+            #         linewidth=lw,
+            #     )
         elif name in ["qiskit"]:
             fil = np.array(list(dat[name + "exc"].items())).T
             plt.plot(
@@ -236,7 +237,7 @@ def plot(dat):
 
 if __name__ == "__main__":
     # for folder in ["singlethread", "multithread", "gpu"]:
-    for folder in ["gpu"]:
+    for folder in ["multithread"]:
         dat = load(folder)
 
         plt.figure(figsize=(12, 6))
