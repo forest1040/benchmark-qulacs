@@ -1,10 +1,12 @@
 import pennylane as qml
 from pennylane import numpy as np
+#import numpy as np
 
 import pytest
 
 nqubits_list = range(4, 26)
 #nqubits_list = range(4, 6)
+
 
 def first_rotation(nqubits):
     for k in range(nqubits):
@@ -40,19 +42,20 @@ def build_circuit(nqubits, depth, pairs):
     return qml.expval(qml.PauliZ(wires=0))
 
 
-@pytest.mark.parametrize("nqubits", nqubits_list)
+@pytest.mark.parametrize('nqubits', nqubits_list)
 def test_QCBM(benchmark, nqubits):
     benchmark.group = "QCBM"
     dev = qml.device("lightning.gpu", wires=nqubits)
     node = qml.QNode(build_circuit, dev)
     pairs = [(i, (i + 1) % nqubits) for i in range(nqubits)]
-    node(nqubits, 9, pairs)
+    benchmark(node, nqubits, 9, pairs)
 
-def main():
-    nqubits = 4
-    dev = qml.device("lightning.gpu", wires=nqubits)
-    node = qml.QNode(build_circuit, dev)
-    pairs = [(i, (i + 1) % nqubits) for i in range(nqubits)]
-    node(nqubits, 9, pairs)
+# def main():
+#     nqubits = 8
+#     dev = qml.device("lightning.gpu", wires=nqubits)
+#     node = qml.QNode(build_circuit, dev)
+#     pairs = [(i, (i + 1) % nqubits) for i in range(nqubits)]
+#     result = node(nqubits, 9, pairs)
+#     print(result)
 
-main() 
+#main() 
