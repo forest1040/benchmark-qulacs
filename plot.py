@@ -5,11 +5,11 @@ import matplotlib.pyplot as plt
 from collections import defaultdict
 
 # liblist = ["qulacs_A100", "qulacs_H100"]  # , "qiskit"]
-#liblist = ["qulacs", "pennylane"]
-liblist = ["pennylane"]
+liblist = ["qulacs", "pennylane"]
+# liblist = ["pennylane"]
 # liblegend = ["QulacsA100", "QulacsH100"]
-#liblegend = ["Qulacs", "Pennylane"]
-liblegend = ["Pennylane"]
+liblegend = ["Qulacs", "Pennylane"]
+# liblegend = ["Pennylane"]
 # liblegend = ["Qulacs", "Qiskit"]
 
 
@@ -23,7 +23,7 @@ def load(folder_name):
         flist = [fname.replace("\\", "/") for fname in flist]
         print(f"flist: {flist}")
         # pick latest one
-        flist.sort(key=lambda x: int(x.split("/")[-1].split("_")[0]), reverse=True)
+        # flist.sort(key=lambda x: int(x.split("/")[-1].split("_")[0]), reverse=True)
         if len(flist) > 0:
             filepaths.append((libname, flist[0]))
 
@@ -65,7 +65,7 @@ def plot(dat):
         lw = 2 if name == "qulacs" else 1
 
         legend = liblegend[ind]
-        ls = "--" if name in ["qulacs", "qiskit"] else "-"
+        ls = "--" if name in ["qulacs", "qiskit", "pennylane"] else "-"
         print(legend)
         # if name not in ["qulacs", "qiskit"]:
         #     fil = np.array(list(dat[name].items())).T
@@ -126,7 +126,7 @@ def plot(dat):
 
 if __name__ == "__main__":
     # for folder in ["singlethread", "multithread", "gpu"]:
-    for folder in ["multithread"]:
+    for folder in ["multithread", "gpu"]:
         dat = load(folder)
 
         plt.figure(figsize=(12, 6))
