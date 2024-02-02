@@ -5,10 +5,11 @@ import matplotlib.pyplot as plt
 from collections import defaultdict
 
 # liblist = ["qulacs_A100", "qulacs_H100"]  # , "qiskit"]
-liblist = ["qulacs", "pennylane"]
+#liblist = ["qulacs", "pennylane"]
+liblist = ["qulacs", "pennylane", "penny_kokkos"]
 # liblist = ["pennylane"]
 # liblegend = ["QulacsA100", "QulacsH100"]
-liblegend = ["Qulacs", "Pennylane"]
+liblegend = ["Qulacs", "Pennylane", "PennyKokkos"]
 # liblegend = ["Pennylane"]
 # liblegend = ["Qulacs", "Qiskit"]
 
