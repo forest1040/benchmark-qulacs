@@ -22,8 +22,31 @@ USE_GPU=Yes pip install .
 ```
 pip install pennylane --upgrade
 pip install pennylane-lightning pennylane-lightning[gpu]
+```
 
 ## cuQuantum install
 ```
 pip install custatevec-cu11
+```
+
+# QIBO
+```
+pip install qibo qibojit
+```
+
+# Execute Bench
+```
+cd benchmark/singlethread
+sh execall.sh
+
+cd benchmark/multithread
+sh execall.sh
+
+cd benchmark/gpu
+sh execall.sh
+```
+
+# plot result
+```
+python plot.py
 ```

@@ -6,13 +6,15 @@ from collections import defaultdict
 
 # liblist = ["qulacs_A100", "qulacs_H100"]  # , "qiskit"]
 #liblist = ["qulacs", "pennylane"]
-liblist = ["qulacs", "pennylane", "penny_kokkos"]
+#liblist = ["qulacs", "pennylane", "penny_kokkos"]
 # liblist = ["pennylane"]
 # liblegend = ["QulacsA100", "QulacsH100"]
-liblegend = ["Qulacs", "Pennylane", "PennyKokkos"]
+#liblegend = ["Qulacs", "Pennylane", "PennyKokkos"]
 # liblegend = ["Pennylane"]
 # liblegend = ["Qulacs", "Qiskit"]
 
+liblist = ["qulacs", "qibojit"]
+liblegend = ["Qulacs", "QIBOJit"]
 
 def load(folder_name):
     filepaths = []
