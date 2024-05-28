@@ -3,18 +3,10 @@ import numpy as np
 import qibo
 from qibo import Circuit, gates
 
-# from qulacs import QuantumCircuit, QuantumState
-# from qulacs.gate import X, T, H, CNOT, ParametricRZ, ParametricRX, DenseMatrix
-# from qulacs.circuit import QuantumCircuitOptimizer as QCO
-
-# import mkl
-# mkl.set_num_threads(1)
-
 qibo.set_backend("qibojit")
 qibo.set_threads(1)
 
-#nqubits_list = range(4, 26)
-nqubits_list = range(4, 6)
+nqubits_list = range(4, 26)
 
 
 def first_rotation(circuit, nqubits):
